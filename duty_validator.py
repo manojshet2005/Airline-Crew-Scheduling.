@@ -1,4 +1,3 @@
-
 def validate_duty(hours_today, hours_last_7_days, rest_hours):
     """
     Validate a crew member's duty hours against the assumed rules.
@@ -28,7 +27,10 @@ if __name__ == "__main__":
     test_inputs = [
         (8, 40, 12),
         (10.5, 40, 12),
-        (8, 40, 9)
+        (8, 40, 9),
+        (8, 65, 12),
+        (8, 60, 10),
+        (8, 60.5, 12)
     ]
 
     for values in test_inputs:
