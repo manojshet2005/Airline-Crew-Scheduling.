@@ -20,12 +20,12 @@ The report uses roll number **57**, student name **Manoj**, and the confirmed re
 - The Flask dashboard calls the existing `duty_validator.validate_duty` function through `POST /api/validate`.
 - The latest full test command, `python -B -m pytest -q -p no:cacheprovider`, completed with **36 passed**.
 - Real Chrome checks covered valid input, daily/rest/weekly violations, reset, missing-field feedback, and a 390 × 844 mobile viewport. Seven genuine screenshots are in `CASE57_LAB_EVIDENCE/UI_UX_REDESIGN/`.
-- Pylint on `hello.py` and `test_app.py`: **10.00/10**; Flake8 on both: **no findings**; Bandit on `hello.py`: **no findings**.
+- Pylint on `duty_validator.py`: **10.00/10**; Flake8 on `hello.py`, `test_app.py`, and `duty_validator.py`: **no findings**; Bandit on `hello.py` and `duty_validator.py`: **no findings**. These are not SonarQube results; see L5.2 for the separate test-file findings and the unavailable SonarQube scan.
 - The three displayed duty limits remain sample educational assumptions, not verified aviation regulations or a production roster approval system.
 
 ## Lab evidence status
 
-Current practical evidence totals are **16 COMPLETE, 6 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED**. These updated counts reflect the later Jenkins and Compose executions; the preserved DOCX/PDF/PPT were not changed during this continuation.
+Current practical evidence totals are **17 COMPLETE, 5 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED** across the 25 lab rows. This continuation did not modify the existing DOCX, PDF, PPT, or original 22 screenshots.
 
 Outstanding human-dependent work:
 
@@ -35,24 +35,25 @@ Outstanding human-dependent work:
 
 Infrastructure/evidence limitations:
 
-- **L3.4:** Jenkins builds #4–#6 succeeded; build #6 checked out the exact GitHub URL, installed dependencies, compiled, passed 9 tests, passed `pip check` and archived a source ZIP. Build #3 failed on a BOM/parser issue, not as a deliberate test failure; L3.4 remains partial until the controlled failure/fix is demonstrated.
+- **L1.3:** preserved ChatGPT and Copilot outputs plus the project validator were replayed on 14 cases; all matched expected semantic classifications 14/14. Account-specific privacy settings remain unobserved.
+- **L3.1:** Prompt 4 was separately retried with Copilot SDK; 12 displayed examples passed. The original ChatGPT response is still incomplete, so the lab remains partial.
+- **L3.4:** prior Jenkins builds #4–#6 succeeded; the current availability check found no process/listener at port 8080. The required deliberate failing-test then corrected-success build pair was not run. A separate-branch procedure is prepared.
 - **L3.5:** A real Compose run built the validator image, connected to healthy PostgreSQL and stored validation rows. The service is a one-shot validator; actual logs and a terminal screenshot are preserved under `CASE57_LAB_EVIDENCE/DOCKER/`.
-- **L5.2:** Pylint findings are not SonarQube findings.
-- **L5.3:** local AI-assisted review is not an actual pull-request review.
-- **L5.4:** timing and SonarQube comparison evidence remain missing.
+- **L5.2:** SonarScanner, server, token and Docker daemon were unavailable; no SonarQube scan was claimed. A future scan procedure is documented.
+- **L5.3:** AI-assisted local review of merged PR #7 and verification of its suggestions are documented. GitHub has zero posted review comments; local notes are not presented as posted PR feedback or human approval. This lab is complete for the official suggestion-log exercise.
+- **L5.4:** project validator passed 10/10 required cases; AI reference passed 8/10. Three independent seven-round runtime benchmark logs are included with full samples/ranges. They are microbenchmarks, not production or authoring-time measurements. SonarQube scans of both implementations remain missing.
 
 ## Git and publication
 
-- Branch: `feature/weekly-limit`
-- Existing `HEAD`: `9b9c9f0370521052a456c408c52fcd1741ba02c` (`Complete Case 57 practical work and evidence`)
-- Existing `origin`: `https://github.com/manojshet2005/Airline-Crew-Scheduling..git`
-- The final continuation commit and whether it was published are reported in the task completion summary; the configured remote was verified with `git ls-remote` before any push.
-- `git diff --check` passed before the final staging operation.
-- Jenkins build #6 and `git ls-remote` verified read access to the configured remote and `feature/weekly-limit`; the final push status is reported in the task completion summary.
+- Starting commit: `469d7087df955a706ddd3acec029a28fb6746ac9` on `feature/weekly-limit`.
+- Existing `origin`: `https://github.com/manojshet2005/Airline-Crew-Scheduling..git`.
+- This continuation stages only reviewed evidence and directly related status documents/scripts. The final commit hash and remote-head comparison are recorded in the completion response after verification; no force-push is used.
 
 ## Remaining submission actions
 
 1. Fill in class/section and submission date if required by the university.
 2. Sign and date the report.
-3. Complete the three human-dependent labs and any desired Jenkins, Compose, SonarQube, and timing-evidence follow-up.
-4. Complete the remaining human-dependent labs and fill in any required student details.
+3. Perform the L3.4 controlled Jenkins failure/fix experiment when Jenkins is available.
+4. Run SonarQube scans for L5.2 and both L5.4 implementations when a viable server/scanner is available.
+5. Complete human-dependent labs L2.4, L4.2 and L5.1; do not fill their forms without real participation.
+6. Fill in class/section and submission date if required, and sign/date the report.

@@ -4,7 +4,18 @@ This index maps the latest actual execution evidence. It does not replace the su
 
 ## Current lab status
 
-**16 COMPLETE, 6 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED** across 25 labs. The authoritative row-by-row status and limitations are in `CASE57_EVIDENCE_AUDIT.md` and the per-lab records.
+**17 COMPLETE, 5 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED** across 25 labs. The authoritative row-by-row status and limitations are in `CASE57_EVIDENCE_AUDIT.md` and the per-lab records.
+
+## New focused lab evidence
+
+| Lab | Reproducible evidence | Actual result / remaining item |
+|---|---|---|
+| L1.3 | `L1.3_compare_tools.py`, `L1.3_comparison_run.txt` | Preserved ChatGPT and Copilot SDK outputs plus project validator were replayed on the same 14 cases; all matched the expected semantic class 14/14. Account plan and privacy settings remain unverified. |
+| L3.1 | `L3.1_prompt4_copilot.py`, `L3.1_prompt4_copilot_run.txt` | A complete Copilot SDK retry of Prompt 4 passed all 12 displayed examples. Original ChatGPT Prompt 4 transcript remains incomplete; the retry is not attributed to ChatGPT. |
+| L3.4 | `L3.4_availability_check.txt`, `L3.4_Evidence.md` | No Jenkins listener/process at port 8080. No controlled failing-test/fix builds were run; a separate-branch procedure is prepared. |
+| L5.2 | `L5.2_availability_check.txt`, `L5.2_Evidence.md` | SonarScanner, local server/port, token, and Docker daemon unavailable. No SonarQube findings fabricated; exact future scan procedure is documented. |
+| L5.3 | `L5.3_pr_review_check.py`, `L5.3_review_check_run.txt`, `L5.3_Evidence.md` | Actual merged PR #7 diff reviewed locally; suggestions were tested. GitHub review API showed zero posted comments/reviews. |
+| L5.4 | `L5.4_comparison.py`, `l54_ai_reference.py`, `L5.4_comparison_run.txt`–`L5.4_comparison_run_03.txt` | Project validator passed 10/10; the AI reference passed 8/10 and failed Boolean/NaN validation. Three seven-round benchmark runs are preserved. SonarQube scans remain missing. |
 
 ## Jenkins – L3.4
 
@@ -48,4 +59,4 @@ The validator containers exit with code 0 after writing a row; PostgreSQL remain
 - L4.2: genuine client/classmate acceptance review and sign-off.
 - L5.1: genuine peer review findings.
 
-Other non-human evidence limitations remain in each lab record, including L1.3 privacy comparison, incomplete ChatGPT Prompt 4 execution, L3.4 deliberate failure/fix, SonarQube, actual PR review, and L5.4 authorship/time and static-analysis comparison. L5.4's short-run runtime measurements are recorded but are not authoring-time measurements. No human input, tool output, or screenshot is fabricated.
+Remaining partial evidence is account-specific privacy settings for L1.3, a complete ChatGPT (not Copilot) Prompt 4 response for L3.1, the isolated Jenkins failure/fix pair for L3.4, SonarQube for L5.2 and both L5.4 implementations. L5.3 is complete against the official suggestion-log wording; its review was local, not posted to GitHub. Human tasks L2.4/L4.2/L5.1 remain pending. L5.4's microbenchmarks are not authoring-time or production-performance measurements. No human input, tool output, posted comment, or screenshot is fabricated.

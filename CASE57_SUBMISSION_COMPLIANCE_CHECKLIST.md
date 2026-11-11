@@ -1,7 +1,7 @@
 # Case 57 submission compliance checklist
 
 **Status source:** `CASE57_EVIDENCE_AUDIT.md` and the per-lab evidence records.
-**Current lab totals:** 16 COMPLETE, 6 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED.
+**Current lab totals:** 17 COMPLETE, 5 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED.
 
 ## Submission requirements
 
@@ -17,7 +17,7 @@
 | Functional dashboard and validator UI | COMPLETE | Flask frontend calls `validate_duty` via `/api/validate`; browser-checked on desktop and mobile. |
 | Previous 13-slide PPT preserved | COMPLETE | Existing 13-slide file is retained; no PPT generation or update was performed in this continuation. |
 | GitHub URL confirmed and local origin aligned | COMPLETE | Student confirmed the canonical URL; local `origin` matches it and `git ls-remote` successfully read the feature branch. |
-| GitHub publication | See completion summary | Final commit and push outcome are reported in the task completion summary. No force-push is permitted. |
+| GitHub publication | See completion summary | The commit hash, normal push outcome, and remote-head comparison are reported in the completion summary. No force-push is used. |
 | Student class/section and submission date | PARTIAL | Not provided; report uses explicit placeholders. Add these details if required. |
 
 ## Lab status matrix
@@ -26,7 +26,7 @@
 |---|---|---|
 | L1.1 | COMPLETE | — |
 | L1.2 | COMPLETE | — |
-| L1.3 | PARTIAL | Check the account-specific privacy settings for both AI tools and record the actual settings. |
+| L1.3 | PARTIAL | Same saved ChatGPT/Copilot outputs now replay 14/14 semantic cases; account plan and privacy settings remain unobserved. |
 | L1.4 | COMPLETE | — |
 | L1.5 | COMPLETE | — |
 | L2.1 | COMPLETE | — |
@@ -34,10 +34,10 @@
 | L2.3 | COMPLETE | — |
 | L2.4 | PENDING HUMAN | Ask three actual classmates to estimate the prepared stories, record their responses, and compare them with AI estimates. |
 | L2.5 | COMPLETE | — |
-| L3.1 | PARTIAL | Preserve/run a complete Prompt 4 response if available and score it; do not treat incomplete generated code as executed. |
+| L3.1 | PARTIAL | Copilot SDK retry of Prompt 4 is complete and 12 examples passed. The retained ChatGPT response is still incomplete; do not attribute the Copilot retry to ChatGPT. |
 | L3.2 | COMPLETE | — |
 | L3.3 | COMPLETE | — |
-| L3.4 | PARTIAL | Jenkins builds #4–#6 succeeded; #6 checked out the exact two-dot GitHub URL and passed 9 tests. Build #3 was a parser/configuration failure, not the required deliberate failure. A controlled failure-and-fix demonstration remains. |
+| L3.4 | PARTIAL | Historical builds #4–#6 succeeded; current Jenkins port 8080 has no listener/process. The required controlled failure/fix pair remains unexecuted; a separate-branch procedure and availability log are prepared. |
 | L3.5 | COMPLETE | Compose connected the one-shot validator to healthy PostgreSQL and persisted two validation rows. Logs and a genuine terminal screenshot are in `CASE57_LAB_EVIDENCE/DOCKER/`. |
 | L4.1 | COMPLETE | — |
 | L4.2 | PENDING HUMAN | Review the five scenarios with a real classmate/client and capture their genuine decision and sign-off. |
@@ -45,9 +45,9 @@
 | L4.4 | COMPLETE | — |
 | L4.5 | COMPLETE | Dashboard design values are explicitly mock; no live monitoring is claimed. |
 | L5.1 | PENDING HUMAN | Have a real peer review a specified artifact/commit and record findings and reviewer confirmation. |
-| L5.2 | PARTIAL | If required, run SonarQube; Pylint findings are an alternative and must not be relabeled. |
-| L5.3 | PARTIAL | If the assignment requires a PR review, obtain actual review comments and test each suggestion; local AI review is not PR review. |
-| L5.4 | PARTIAL | Capture reliable authoring-time measurements and SonarQube results for both implementations if required. |
+| L5.2 | PARTIAL | SonarScanner/server/token and Docker daemon are unavailable. A precise future scan procedure is recorded; Pylint is not presented as SonarQube. |
+| L5.3 | COMPLETE | Actual merged PR #7 diff reviewed by Copilot SDK locally; suggestions and verification are logged. GitHub has zero posted reviews/comments; no human approval is claimed. |
+| L5.4 | PARTIAL | Project validator passed 10/10, AI reference 8/10; three reproducible runtime runs are recorded. SonarQube scans of both remain outstanding. |
 | L5.5 | COMPLETE | — |
 
-All status totals above are the pre-existing audited lab totals; the new UI work and tests are reported separately and do not retroactively alter historical lab evidence.
+Current status totals above are recalculated from all 25 authoritative lab rows: 17 COMPLETE, 5 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED.

@@ -1,0 +1,16 @@
+Case 57 SonarQube availability check
+Date: 2026-11-11T19:21:19.7523501+05:30
+sonar-scanner: unavailable
+SonarScanner.MSBuild.exe: unavailable
+SONAR_HOST_URL: not configured
+SONAR_TOKEN: not configured
+SONAR_LOGIN: not configured
+127.0.0.1:9000 listener: none
+docker info result: docker.exe : failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is
+correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file
+specified.
+At line:2 char:816
++ ... )}; $docker=(& docker info --format '{{.ServerVersion}}' 2>&1 | Out-S ...
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (failed to conne...file specified.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError

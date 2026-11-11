@@ -1,0 +1,14 @@
+Command: C:\Users\guest pc\Desktop\CAT2_Case57\examportal\venv\Scripts\python.exe CASE57_LAB_EVIDENCE\L3.1_prompt4_copilot.py
+Date: 2026-11-11T19:16:35.8641551+05:30
+(10, 60, 10) -> (True, 'All sample duty rules satisfied.')
+(8, 45, 12) -> (True, 'All sample duty rules satisfied.')
+(10.1, 50, 12) -> (False, 'Daily duty exceeds 10 hours.')
+(8, 50, 9.9) -> (False, 'Rest is below 10 hours.')
+(8, 60.1, 12) -> (False, 'Rolling 7-day duty exceeds 60 hours.')
+(11, 50, 9) -> (False, 'Daily duty exceeds 10 hours.')
+(8, 61, 9) -> (False, 'Rest is below 10 hours.')
+(-1, 40, 12) -> ValueError: Inputs must be finite, non-negative numbers.
+(True, 40, 12) -> ValueError: Inputs must be finite, non-negative numbers.
+('8', 40, 12) -> ValueError: Inputs must be finite, non-negative numbers.
+(nan, 40, 12) -> ValueError: Inputs must be finite, non-negative numbers.
+(8, inf, 12) -> ValueError: Inputs must be finite, non-negative numbers.

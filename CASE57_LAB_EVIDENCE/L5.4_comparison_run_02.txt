@@ -1,0 +1,28 @@
+Command: C:\Users\guest pc\Desktop\CAT2_Case57\examportal\venv\Scripts\python.exe CASE57_LAB_EVIDENCE\L5.4_comparison.py
+Date: 2026-11-11T19:22:07.8100485+05:30
+Required ten shared behavior cases
+Case | Expected | Project | AI reference
+exact boundaries | accept | accept | accept
+typical valid | accept | accept | accept
+daily violation | daily | daily | daily
+rest violation | rest | rest | rest
+weekly violation | weekly | weekly | weekly
+daily before rest | daily | daily | daily
+rest before weekly | rest | rest | rest
+negative input | ValueError | ValueError | ValueError
+boolean input | ValueError | ValueError | accept
+NaN input | ValueError | ValueError | accept
+Required cases: 10
+project matching expected outcomes: 10/10
+AI reference matching expected outcomes: 8/10
+Supplementary string input | ValueError | ValueError | TypeError
+Supplementary positive infinity | ValueError | ValueError | weekly
+Benchmark: perf_counter_ns; warm-up=1000 invocations/case/tool; rounds=7; repeats=20000; valid cases/round=2; calls/tool/round=40000
+project: samples ns/call=924.2, 1003.8, 988.2, 922.8, 1051.3, 935.9, 927.8
+project: sample range ns/call=922.8-1051.3
+project: median ns/call=935.9; median ms/20k-repeats over 2 valid cases=37.435
+AI reference: samples ns/call=844.0, 831.2, 816.1, 870.2, 853.8, 813.9, 861.9
+AI reference: sample range ns/call=813.9-870.2
+AI reference: median ns/call=844.0; median ms/20k-repeats over 2 valid cases=33.762
+AI-reference median vs project: -9.81% (positive is slower)
+Python: 3.14.7; OS: Windows-11-10.0.26300-SP0; CPU: AMD64 Family 23 Model 104 Stepping 1, AuthenticAMD

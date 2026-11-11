@@ -1,0 +1,21 @@
+Command: C:\Users\guest pc\Desktop\CAT2_Case57\examportal\venv\Scripts\python.exe CASE57_LAB_EVIDENCE\L1.3_compare_tools.py
+Date: 2026-11-11T19:16:37.4503008+05:30
+Case | Expected | ChatGPT | Copilot SDK | Project
+exact boundaries | Accept | Accept | Accept | Accept
+ordinary valid | Accept | Accept | Accept | Accept
+daily over | Daily rejection | Daily rejection | Daily rejection | Daily rejection
+rest under | Rest rejection | Rest rejection | Rest rejection | Rest rejection
+weekly over | Weekly rejection | Weekly rejection | Weekly rejection | Weekly rejection
+daily and rest | Daily rejection | Daily rejection | Daily rejection | Daily rejection
+rest and weekly | Rest rejection | Rest rejection | Rest rejection | Rest rejection
+all rules | Daily rejection | Daily rejection | Daily rejection | Daily rejection
+negative | ValueError | ValueError | ValueError | ValueError
+boolean | ValueError | ValueError | ValueError | ValueError
+string | ValueError | ValueError | ValueError | ValueError
+NaN | ValueError | ValueError | ValueError | ValueError
+positive infinity | ValueError | ValueError | ValueError | ValueError
+negative infinity | ValueError | ValueError | ValueError | ValueError
+Shared cases: 14
+ChatGPT matching ChatGPT semantic outcomes: 14/14
+Copilot SDK matching ChatGPT semantic outcomes: 14/14
+Project matching ChatGPT semantic outcomes: 14/14

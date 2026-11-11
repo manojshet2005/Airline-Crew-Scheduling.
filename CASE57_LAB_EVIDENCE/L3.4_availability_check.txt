@@ -1,0 +1,5 @@
+Case 57 Jenkins availability check
+Date: 2026-11-11T19:21:19.7523501+05:30
+127.0.0.1:8080 listener: none
+Java/Jenkins processes: none
+HTTP probe: WebException; Unable to connect to the remote server
