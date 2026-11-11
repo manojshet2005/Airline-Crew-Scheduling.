@@ -1,6 +1,6 @@
 # Case 57 PowerPoint Content Blueprint
 
-**Purpose:** Content and visual direction for a 14-slide presentation to be authored in Claude. This is a blueprint only; it is not the final PowerPoint.
+**Purpose:** Content and visual direction for a 13-slide presentation. This is a blueprint only; it is not the final PowerPoint.
 
 **Student:** Manoj — Roll Number 57<br>
 **University:** Dayananda Sagar University<br>
@@ -28,15 +28,15 @@ Use the friend's deck as a presentation-design reference, not as content to copy
 - Small numbered section label above a concise, assertive slide title; thin rules, restrained accent lines, generous whitespace, rounded cards, simple arrows, and a small slide number/footer.
 - Favor one clear diagram or evidence image per slide, with concise text and a status callout. Keep body text readable; move the fuller explanations below into speaker notes.
 - Use status labels consistently: **IMPLEMENTED / EVIDENCED**, **PROPOSED**, **PENDING**. Never style a proposed diagram as if it were a deployed system.
-- The reference deck alternates problem, workflow, architecture, process, test/evidence, limitations and wrap-up slides. Preserve that narrative rhythm while keeping this presentation to the requested 14 slides.
+- The reference deck alternates problem, workflow, architecture, process, test/evidence, limitations and wrap-up slides. Preserve that narrative rhythm in the requested 13-slide presentation.
 
 ## Evidence and accuracy guardrails
 
 - The project uses **sample assumptions**, not confirmed airline law: daily duty maximum 10.0 hours inclusive; minimum rest 10.0 hours inclusive; seven-day duty maximum 60.0 hours inclusive; negative inputs raise `ValueError`. State visibly that faculty/official rules must confirm these values.
-- The current validator is a small Python function. The Flask app has only greeting and about routes; it does not call the validator or present a scheduling workflow.
-- Existing unit and AI-test files each contain ten tests. `CASE57_INSTRUCTIONS.md` records a latest local result of 20 tests passed. Existing screenshots show separate older 10-test runs; they are not a screenshot of that combined 20-test run.
-- The Docker screenshot shows a single-container `docker run` test execution (9 tests in that screenshot), **not Docker Compose**. No app/database Compose stack is evidenced.
-- A `Jenkinsfile` exists, but the inspected PR screenshot says Jenkins execution was pending/not configured. Do not claim a Jenkins build ran.
+- The core validator remains a small Python function. The Flask prototype now provides a dashboard and JSON validation route; it is not a roster generator or operational airline system.
+- The original validator and AI-labelled test files each contain ten tests; the original combined result was 20 passed. Flask route/API tests were later added, and the current full local suite reports 36 passed. Existing original screenshots show earlier individual runs, not a screenshot of the current 36-test result.
+- The historical Docker screenshot shows a single-container `docker run` test execution (9 tests), **not Docker Compose**. A separate actual Compose run now proves the one-shot validator connected to healthy PostgreSQL and persisted rows; see `CASE57_LAB_EVIDENCE/DOCKER/`.
+- Jenkins builds #4–#6 actually ran. Build #6 checked out the exact two-dot GitHub URL and passed 9 remote-branch tests. Build #3 failed at Pipeline DSL parsing, not as a deliberately induced test failure; L3.4 remains partial.
 - Existing analyzer screenshots are Pylint, Flake8 and Bandit, **not SonarQube**. The report's SonarQube quality gate is not evidenced.
 - No screenshot proves an actual Git merge conflict. A merged PR is not a merge-conflict demonstration.
 - L4.3 now has genuine Chrome screenshots for plain and POM Selenium. No existing screenshot proves AI review comments, ChatGPT prompt iterations, or an L1.3 privacy-settings screen.
@@ -46,10 +46,10 @@ Use the friend's deck as a presentation-design reference, not as content to copy
 
 This update supersedes stale slide notes below where they say that lab work is still absent. The current matrix is in `CASE57_EVIDENCE_AUDIT.md`; lab evidence files are under `CASE57_LAB_EVIDENCE`.
 
-- **Current lab totals:** 15 COMPLETE, 5 PARTIAL, 3 PENDING HUMAN and 2 BLOCKED.
-- **Verified test run:** the project suite ran locally and reported **20 passed in 0.12s**. This command result is not a new screenshot.
-- **Completed practical evidence:** prior written labs plus L4.3 plain/POM Selenium runs in Chrome with recaptured screenshots.
-- **Still partial or unavailable:** L1.3 privacy-settings comparison, incomplete L3.1 Prompt 4, SonarQube scans, a real PR review, and L5.4 authoring-time/SonarQube comparison. L2.4/L4.2/L5.1 need genuine human participation. Jenkins remains blocked (Java 8 JRE, no controller). Docker Compose remains blocked (Engine unreachable; Desktop paging-file error). Prepared Compose files exist and were not executed.
+- **Current lab totals:** 16 COMPLETE, 6 PARTIAL, 3 PENDING HUMAN and 0 BLOCKED.
+- **Verified test runs:** the current local workspace suite reports **36 passed**; Jenkins build #6 reports **9 passed** on the checked-out remote branch. These are separate test sets.
+- **Completed practical evidence:** prior written labs, current Flask/Chrome UI checks, L3.4 Jenkins builds, L3.5 Compose/database communication, and L4.3 plain/POM Selenium runs.
+- **Still partial or human-dependent:** L1.3 privacy-settings comparison, incomplete L3.1 Prompt 4, the deliberate Jenkins failure/fix experiment, SonarQube scans, a real PR review, and L5.4 authoring-time/SonarQube comparison. L2.4/L4.2/L5.1 need genuine human participation. Jenkins and Docker Compose have actual run evidence; do not inflate those results beyond their logs.
 - **Screenshot rule:** L4.3 screenshots were recaptured from the Chrome run. Other existing screenshots were not overwritten. The L4.5 sketch contains mock values, not live monitoring data.
 
 ---
@@ -236,25 +236,25 @@ Add a label that persistence and API integration are not present in the current 
 
 ## Slide 9 — Git, GitHub, Jenkins and Docker
 
-**Exact title:** Version control and packaging are evidenced; CI execution is pending
+**Exact title:** Jenkins CI and Compose database communication are evidenced
 
 **Presentation-ready content**
 
 - **Git:** A feature branch and project history are visible in the existing terminal evidence.
 - **GitHub:** A project pull request was merged; this is ordinary PR evidence, not proof of a merge conflict or AI review.
-- **Docker:** A Dockerfile installs requirements, copies the validator/test file, switches to a non-root user and runs pytest.
-- The existing Docker run screenshot shows a single container running tests (9 passed in that captured run).
-- **Jenkins:** A Jenkinsfile is present with Checkout, Install, Test and Package stages, but the inspected PR evidence says Jenkins was not configured and no Jenkins build was run.
+- **Jenkins:** Build #6 checked out `https://github.com/manojshet2005/Airline-Crew-Scheduling..git`, installed dependencies, compiled, passed **9 remote-branch tests**, passed `pip check`, and archived a source ZIP.
+- **Docker Compose:** The one-shot validator connected to healthy PostgreSQL and stored validation rows; a direct query verified persistence.
+- Jenkins build #3 failed because of a Pipeline DSL parsing issue; later builds succeeded. The failure was not deliberately induced as a lab test.
 
-**Talking point:** The config and successful Docker test run should not be presented as a completed Jenkins pipeline or Docker Compose app/database deployment.
+**Talking point:** Distinguish Jenkins's source-archive package from a Docker image, and distinguish the one-shot Compose validator from a persistent application service.
 
-**Diagram/flowchart for Claude:** Proposed CI path `Git push/PR → Jenkins checkout → install → test → Docker image build`; color the Jenkins execution portion amber and label **configured file / build not evidenced**. Below it, keep the actual Docker `docker run` test as a separate completed proof.
+**Diagram/flowchart:** `GitHub checkout → isolated install → compile → pytest → dependency check → source ZIP`; show the separate Compose path `validator → PostgreSQL` with the verified write. Mark the deliberate Jenkins failure/fix experiment as pending.
 
-**Existing screenshots:** `C57_TaskC_01_Git_Log.png.png` (Git history/branch), `C57_TaskC_02_PR_Merged.png.png` (merged PR), `C57_TaskC_03_Docker_Run.png.png` (single-container pytest), `C57_TaskC_04_GitHub_Files.png.png` (repository files), `C57_TaskC_04_PR_Details.png.png` (PR details and Jenkins-pending note).
+**Existing screenshots:** Historical Git/PR/single-container evidence remains in `original_22_screenshots/`. Genuine Jenkins captures are in `CASE57_LAB_EVIDENCE/JENKINS_BUILD/`; Compose terminal proof is `CASE57_LAB_EVIDENCE/DOCKER/compose_live_verification.png`.
 
-**Missing evidence/practical work:** L3.3 conflict markers, AI suggestion, resolution and Git verification are now documented from an isolated temporary repository; there is no conflict screenshot. Jenkins success/failure/fix remains blocked. L3.5 Compose files are prepared (`compose.yaml`, `Dockerfile.compose`) and were not run. Do not infer a Compose or Jenkins run from historical images.
+**Missing evidence/practical work:** L3.3 conflict evidence is text-based and has no screenshot. L3.4 still needs a controlled deliberate failure followed by a fix; build #3 is not that experiment.
 
-**Status:** Git/ordinary PR and single-container Docker test activity have historical screenshots; L3.3 is complete in text evidence; Jenkins and Compose remain blocked. L4.3 Selenium is complete.
+**Status:** Jenkins checkout/build/test/source packaging and Compose/database communication are evidenced. L3.4 remains partial; L3.5's one-shot communication task is complete.
 
 ## Slide 10 — Testing strategy
 
@@ -262,21 +262,21 @@ Add a label that persistence and API integration are not present in the current 
 
 **Presentation-ready content**
 
-- The unit suite covers valid duty, exact daily/rest/weekly limits, over-limit values and negative-input errors.
+- The current local suite includes the original validator tests plus Flask route/API coverage; the latest full result is **36 passed**.
 - The separate AI-labelled test file has ten more cases, including zero duty, threshold boundaries and negative inputs.
-- `CASE57_INSTRUCTIONS.md` records the latest full local test run as **20 passed**. Existing screenshots show separate earlier 10-test runs, not that combined run.
+- Jenkins build #6 ran a distinct remote-branch suite: **9 passed**. Do not combine its count with the current local result.
 - The earlier coverage screenshot reports **61%** statement coverage for `duty_validator.py`; present it as that captured run, not a current coverage guarantee.
 - Tests demonstrate the assumed rules, not legal correctness or full roster-level performance.
 
 **Talking point:** A passing suite is useful evidence of implementation behavior against its test expectations; it does not validate the assumptions against official regulations.
 
-**Diagram/flowchart for Claude:** Small test pyramid with a large unit-test base labeled “20 current local tests recorded (10 standard + 10 AI-labelled),” a thin integration/UI layer labeled “not evidenced,” and a top performance/400-crew layer labeled “not measured.”
+**Diagram/flowchart:** Show the local suite (36 passed), the separate Jenkins branch suite (9 passed), browser/Compose evidence, and a distinct top tier labelled “400-crew performance not measured.”
 
 **Existing screenshots:** `C57_TaskD_01_Pytest.png.png` (10 unit tests passed), `C57_TaskD_02_Coverage.png.png` (61% captured coverage), `C57_TaskD_03_AI_Generated_Tests.png.png` (10 AI-labelled tests passed), `C57_TaskE_05_Final_Unit_Tests.png.png` and `C57_TaskE_06_AI_Tests_Final.png.png` (later test-run images).
 
 **Missing evidence/practical work:** No 400-crew timing result exists. L4.3 Selenium/POM Chrome runs are documented with screenshots. L4.1's ten manual checks/two seeded defects are documented. L4.4 records ten ChatGPT tests; 9/10 are supported by the case rule table (90%), and the unsupported Boolean expectation was removed from the corrected final set.
 
-**Status:** The current full suite ran with 20 passing tests; prior screenshots show separate runs. L4.1 and L4.4 evidence is complete; performance testing is not measured.
+**Status:** The current local suite and Jenkins run have distinct recorded results. The 400-crew performance target is not measured.
 
 ## Slide 11 — Software quality, security and static analysis
 
@@ -312,6 +312,7 @@ Add a label that persistence and API integration are not present in the current 
 - AI-suggested rules, tests or roster decisions need human verification against the approved source.
 - Do not place real crew names, personal data or confidential roster details in AI prompts.
 - **Scope limit:** This prototype does not generate AI crew rosters; fairness in generated rosters remains a design and review requirement, not a demonstrated feature.
+- **Operational limitations:** 10/10/60-hour limits are sample assumptions pending official confirmation; no timestamp-based rest computation, roster generation or measured 400-crew performance is claimed.
 
 **Talking point:** Fairness is not established by code alone. A future roster generator would need defined fairness criteria, representative evaluation and human oversight.
 
@@ -323,29 +324,7 @@ Add a label that persistence and API integration are not present in the current 
 
 **Status:** Current decision logic is numeric and explanatory; AI roster fairness evaluation is not implemented or evidenced.
 
-## Slide 13 — Challenges, limitations and next improvements
-
-**Exact title:** Rule confirmation and integration are the next gates
-
-**Presentation-ready content**
-
-- **Rule uncertainty:** 10/10/60-hour values are assumptions pending official/faculty confirmation.
-- **Prototype boundary:** one Python function; no timestamp-based rest calculation, roster generation, database, or validator web/API integration.
-- **Input robustness:** the implementation checks negative values, but does not explicitly reject all wrong types or non-finite numeric values.
-- **Automation gap:** Jenkinsfile exists but no Jenkins build is evidenced; Docker Compose is blocked (engine down); Selenium POM is evidenced; SonarQube was not run; the AI review was not on an actual PR.
-- **Scale claim not tested:** the 400-crew target comes from the scenario; no measured 400-crew run is available.
-
-**Talking point:** The priority order is confirm rules → strengthen input validation → add a small validator UI/API if needed → automate verified tests → measure performance and fairness.
-
-**Diagram/flowchart for Claude:** Roadmap with two swimlanes: **Now / evidenced** (validator, tests, Selenium POM, Docker test container, static analyzers) and **Next / pending** (rule sign-off, input hardening, integration, Jenkins, Compose, SonarQube, 400-crew test).
-
-**Existing screenshots:** `C57_TaskC_04_PR_Details.png.png` supports the Jenkins-pending status; `C57_TaskC_03_Docker_Run.png.png` supports the limited Docker test container; `C57_TaskE_01_Pylint.png.png`, `C57_TaskE_02_Flake8.png.png` and `C57_TaskE_03_Bandit.png.png` support the static-analysis status.
-
-**Missing evidence/practical work:** Complete the partial/blocked labs in the current audit matrix and obtain genuine classmate participation for L2.4, L4.2 and L5.1. No new screenshot is necessary for this roadmap.
-
-**Status:** Limitations are based on inspected code, project files and evidence; roadmap items are proposals.
-
-## Slide 14 — Conclusion and references
+## Slide 13 — Conclusion and references
 
 **Exact title:** A tested prototype is a starting point—not legal approval
 
@@ -353,7 +332,7 @@ Add a label that persistence and API integration are not present in the current 
 
 - Case 57 choices remain fixed: **Spiral + Scrum + ChatGPT + Duty-Limit Validator**.
 - The current Python prototype demonstrates explicit daily, rest and weekly checks against sample assumptions.
-- The recorded local suite has 20 passing tests; existing screenshots document individual test and tool runs.
+- The current local workspace suite reports 36 passing tests; Jenkins build #6 separately reports 9 passing tests on its checked-out branch.
 - Before a real scheduling use: confirm rules, complete practical evidence, review edge cases, and validate any larger integration with accountable human oversight.
 - **References:** Official Case 57 assignment entry; `CASE57_INSTRUCTIONS.md`; Case 57 report draft; project validator/tests; inspected Case 45 reference deck (visual structure only).
 
@@ -381,7 +360,7 @@ Add a label that persistence and API integration are not present in the current 
 ## Current pending-evidence checklist for Claude
 
 - **Can reuse directly:** Dashboard sketch (`C57_L4.5_01_Dashboard_Sketch.png.png`), backlog (`C57_TaskB_01_Backlog.png.png`), validator examples, test runs, coverage and existing static-analysis screenshots—only for the specific claims they visibly support.
-- **Do not claim as done:** Jenkins success/failure/fix; Docker Compose/database communication (files prepared, engine down); SonarQube; account privacy settings for L1.3; completed Prompt 4 code; actual PR review; 400-crew performance; classmate estimates/sign-offs; fairness evaluation of generated rosters.
+- **Do not claim as done:** the deliberate Jenkins failure/fix experiment; SonarQube; account privacy settings for L1.3; completed Prompt 4 code; actual PR review; 400-crew performance; classmate estimates/sign-offs; fairness evaluation of generated rosters.
 - **Already evidenced:** L3.3 merge conflict (text/transcript in `L3.3_Evidence.md`); L4.1 manual checks/seeded defects; L4.3 Selenium plain vs POM Chrome run; L4.5 dashboard sketch; L5.5 disclosure/policy/licence check.
-- **Evidence still to collect:** ChatGPT-specific output where required, Jenkins/Compose/SonarQube runs when tools are available, actual PR review, genuine peer/classmate input and any measured 400-crew/fairness results.
+- **Evidence still to collect:** ChatGPT-specific output where required, the deliberate Jenkins failure/fix, SonarQube, actual PR review, genuine peer/classmate input and any measured 400-crew/fairness results.
 - **Never fabricate or infer:** test/build results, prompts, AI provenance, tool configuration, classmate participation, legal approval, or screenshots.

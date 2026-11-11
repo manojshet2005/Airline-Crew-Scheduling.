@@ -1,0 +1,24 @@
+Case 57 L3.5 Docker Compose execution evidence
+Captured: 2026-11-11
+Docker client: Docker version 29.9.2, build a82e528
+Compose: Docker Compose version v5.6.1
+Compose config validation: PASS (docker compose config --quiet)
+--- Initial actual Compose run ---
+Command: docker compose up --build --abort-on-container-exit --exit-code-from validator
+Result: exit 0; image built; PostgreSQL healthy; validator connected and wrote one row.
+--- Validator container stdout ---
+Database connection: SUCCESS
+Validator result: accepted=True reason=Duty schedule accepted.
+Rows stored in duty_checks: 1
+
+--- Independent one-shot rerun against persistent database ---
+Database connection: SUCCESS
+Validator result: accepted=True reason=Duty schedule accepted.
+Rows stored in duty_checks: 2
+
+Persisted duty_checks row count: 2
+--- Compose container state after verification ---
+NAME                          IMAGE                  COMMAND                  SERVICE     CREATED              STATUS                              PORTS
+case57-validator-l35-verify   examportal-validator   "python compose_vali…"   validator   2 seconds ago        Exited (0) Less than a second ago   
+examportal-db-1               postgres:16-alpine     "docker-entrypoint.s…"   db          8 seconds ago        Up 7 seconds (healthy)              5432/tcp
+examportal-validator-1        examportal-validator   "python compose_vali…"   validator   About a minute ago   Exited (0) About a minute ago       

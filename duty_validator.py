@@ -1,5 +1,7 @@
 """Duty-limit validation for airline crew scheduling."""
 
+from math import isfinite
+
 
 def validate_duty(hours_today, hours_last_7_days, rest_hours):
     """
@@ -11,7 +13,22 @@ def validate_duty(hours_today, hours_last_7_days, rest_hours):
     R4: Negative values are invalid.
     """
 
-    for hours in (hours_today, hours_last_7_days, rest_hours):
+    hours_values = (hours_today, hours_last_7_days, rest_hours)
+    for hours in hours_values:
+        if isinstance(hours, bool) or not isinstance(hours, (int, float)):
+            raise ValueError(
+                "Duty hours and rest hours must be finite numbers."
+            )
+        try:
+            finite = isfinite(hours)
+        except OverflowError:
+            finite = False
+        if not finite:
+            raise ValueError(
+                "Duty hours and rest hours must be finite numbers."
+            )
+
+    for hours in hours_values:
         if hours < 0:
             raise ValueError("Duty hours and rest hours cannot be negative.")
 

@@ -1,0 +1,115 @@
+Started by user admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] echo
+Checking out Airline Crew Scheduling from the verified GitHub remote
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git.exe rev-parse --resolve-git-dir C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling\.git # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/manojshet2005/Airline-Crew-Scheduling..git # timeout=10
+Fetching upstream changes from https://github.com/manojshet2005/Airline-Crew-Scheduling..git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.55.0.windows.4'
+ > git.exe fetch --tags --force --progress -- https://github.com/manojshet2005/Airline-Crew-Scheduling..git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/feature/weekly-limit^{commit}" # timeout=10
+Checking out Revision 80531773790cecbc22b71cc8ed4de05687d6d690 (refs/remotes/origin/feature/weekly-limit)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 80531773790cecbc22b71cc8ed4de05687d6d690 # timeout=10
+Commit message: "Add Docker configuration, Jenkins pipeline and automated tests"
+ > git.exe rev-list --no-walk 80531773790cecbc22b71cc8ed4de05687d6d690 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Install)
+[Pipeline] echo
+Creating an isolated Python environment and installing dependencies
+[Pipeline] bat
+
+C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling>python -m venv .venv 
+[Pipeline] bat
+
+C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling>.venv\Scripts\python.exe -m pip install -r requirements.txt 
+Requirement already satisfied: blinker==1.9.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 1)) (1.9.0)
+Requirement already satisfied: certifi==2026.10.23 in .\.venv\Lib\site-packages (from -r requirements.txt (line 2)) (2026.10.23)
+Requirement already satisfied: charset-normalizer==3.5.2 in .\.venv\Lib\site-packages (from -r requirements.txt (line 3)) (3.5.2)
+Requirement already satisfied: click==8.5.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 4)) (8.5.0)
+Requirement already satisfied: colorama==0.4.6 in .\.venv\Lib\site-packages (from -r requirements.txt (line 5)) (0.4.6)
+Requirement already satisfied: coverage==7.17.2 in .\.venv\Lib\site-packages (from -r requirements.txt (line 6)) (7.17.2)
+Requirement already satisfied: Flask==3.1.3 in .\.venv\Lib\site-packages (from -r requirements.txt (line 7)) (3.1.3)
+Requirement already satisfied: idna==3.20 in .\.venv\Lib\site-packages (from -r requirements.txt (line 8)) (3.20)
+Requirement already satisfied: iniconfig==2.3.1 in .\.venv\Lib\site-packages (from -r requirements.txt (line 9)) (2.3.1)
+Requirement already satisfied: itsdangerous==2.2.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 10)) (2.2.0)
+Requirement already satisfied: Jinja2==3.1.6 in .\.venv\Lib\site-packages (from -r requirements.txt (line 11)) (3.1.6)
+Requirement already satisfied: MarkupSafe==3.0.4 in .\.venv\Lib\site-packages (from -r requirements.txt (line 12)) (3.0.4)
+Requirement already satisfied: packaging==26.3 in .\.venv\Lib\site-packages (from -r requirements.txt (line 13)) (26.3)
+Requirement already satisfied: pluggy==1.7.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 14)) (1.7.0)
+Requirement already satisfied: Pygments==2.21.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 15)) (2.21.0)
+Requirement already satisfied: pytest==9.2.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 16)) (9.2.0)
+Requirement already satisfied: pytest-cov==7.1.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 17)) (7.1.0)
+Requirement already satisfied: requests==2.34.2 in .\.venv\Lib\site-packages (from -r requirements.txt (line 18)) (2.34.2)
+Requirement already satisfied: urllib3==2.8.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 19)) (2.8.0)
+Requirement already satisfied: Werkzeug==3.1.9 in .\.venv\Lib\site-packages (from -r requirements.txt (line 20)) (3.1.9)
+
+[notice] A new release of pip is available: 26.2.1 -> 26.3
+[notice] To update, run: C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling\.venv\Scripts\python.exe -m pip install --upgrade pip
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] echo
+Compiling validator and tests
+[Pipeline] bat
+
+C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling>.venv\Scripts\python.exe -m compileall -q duty_validator.py test_duty_validator.py 
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] echo
+Running all available project tests
+[Pipeline] bat
+
+C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling>.venv\Scripts\python.exe -m pytest -q 
+.........                                                                [100%]
+9 passed in 0.02s
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Quality Check)
+[Pipeline] echo
+Checking installed dependency consistency
+[Pipeline] bat
+
+C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling>.venv\Scripts\python.exe -m pip check 
+No broken requirements found.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Package Source Archive)
+[Pipeline] echo
+Packaging the tested source files; this stage does not claim a Docker image build
+[Pipeline] bat
+
+C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling>.venv\Scripts\python.exe -m zipfile -c duty-validator.zip duty_validator.py test_duty_validator.py requirements.txt Dockerfile 
+[Pipeline] archiveArtifacts
+Archiving artifacts
+Recording fingerprints
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Checkout, isolated dependency installation, tests, and source archive completed successfully. No Docker image was built.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

@@ -1,0 +1,142 @@
+Started by user admin
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] echo
+Checking out Airline Crew Scheduling from the verified GitHub remote
+[Pipeline] checkout
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+Cloning the remote Git repository
+Cloning repository https://github.com/manojshet2005/Airline-Crew-Scheduling..git
+ > git.exe init C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling # timeout=10
+Fetching upstream changes from https://github.com/manojshet2005/Airline-Crew-Scheduling..git
+ > git.exe --version # timeout=10
+ > git --version # 'git version 2.55.0.windows.4'
+ > git.exe fetch --tags --force --progress -- https://github.com/manojshet2005/Airline-Crew-Scheduling..git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe config remote.origin.url https://github.com/manojshet2005/Airline-Crew-Scheduling..git # timeout=10
+ > git.exe config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/* # timeout=10
+Avoid second fetch
+ > git.exe rev-parse "refs/remotes/origin/feature/weekly-limit^{commit}" # timeout=10
+Checking out Revision 80531773790cecbc22b71cc8ed4de05687d6d690 (refs/remotes/origin/feature/weekly-limit)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 80531773790cecbc22b71cc8ed4de05687d6d690 # timeout=10
+Commit message: "Add Docker configuration, Jenkins pipeline and automated tests"
+First time build. Skipping changelog.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Install)
+[Pipeline] echo
+Creating an isolated Python environment and installing dependencies
+[Pipeline] bat
+
+C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling>python -m venv .venv 
+[Pipeline] bat
+
+C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling>.venv\Scripts\python.exe -m pip install -r requirements.txt 
+Collecting blinker==1.9.0 (from -r requirements.txt (line 1))
+  Using cached blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+Collecting certifi==2026.10.23 (from -r requirements.txt (line 2))
+  Using cached certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+Collecting charset-normalizer==3.5.2 (from -r requirements.txt (line 3))
+  Using cached charset_normalizer-3.5.2-cp314-cp314-win_amd64.whl.metadata (47 kB)
+Collecting click==8.5.0 (from -r requirements.txt (line 4))
+  Using cached click-8.5.0-py3-none-any.whl.metadata (2.6 kB)
+Collecting colorama==0.4.6 (from -r requirements.txt (line 5))
+  Using cached colorama-0.4.6-py2.py3-none-any.whl.metadata (17 kB)
+Collecting coverage==7.17.2 (from -r requirements.txt (line 6))
+  Using cached coverage-7.17.2-cp314-cp314-win_amd64.whl.metadata (8.3 kB)
+Collecting Flask==3.1.3 (from -r requirements.txt (line 7))
+  Using cached flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+Collecting idna==3.20 (from -r requirements.txt (line 8))
+  Using cached idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+Collecting iniconfig==2.3.1 (from -r requirements.txt (line 9))
+  Using cached iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting itsdangerous==2.2.0 (from -r requirements.txt (line 10))
+  Using cached itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+Collecting Jinja2==3.1.6 (from -r requirements.txt (line 11))
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting MarkupSafe==3.0.4 (from -r requirements.txt (line 12))
+  Using cached markupsafe-3.0.4-cp314-cp314-win_amd64.whl.metadata (2.8 kB)
+Collecting packaging==26.3 (from -r requirements.txt (line 13))
+  Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy==1.7.0 (from -r requirements.txt (line 14))
+  Using cached pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting Pygments==2.21.0 (from -r requirements.txt (line 15))
+  Using cached pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Collecting pytest==9.2.0 (from -r requirements.txt (line 16))
+  Using cached pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting pytest-cov==7.1.0 (from -r requirements.txt (line 17))
+  Using cached pytest_cov-7.1.0-py3-none-any.whl.metadata (32 kB)
+Collecting requests==2.34.2 (from -r requirements.txt (line 18))
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting urllib3==2.8.0 (from -r requirements.txt (line 19))
+  Using cached urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+Collecting Werkzeug==3.1.9 (from -r requirements.txt (line 20))
+  Using cached werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+Using cached blinker-1.9.0-py3-none-any.whl (8.5 kB)
+Using cached certifi-2026.10.23-py3-none-any.whl (135 kB)
+Using cached charset_normalizer-3.5.2-cp314-cp314-win_amd64.whl (210 kB)
+Using cached click-8.5.0-py3-none-any.whl (125 kB)
+Using cached colorama-0.4.6-py2.py3-none-any.whl (25 kB)
+Using cached coverage-7.17.2-cp314-cp314-win_amd64.whl (230 kB)
+Using cached flask-3.1.3-py3-none-any.whl (103 kB)
+Using cached idna-3.20-py3-none-any.whl (69 kB)
+Using cached iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Using cached itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached markupsafe-3.0.4-cp314-cp314-win_amd64.whl (14 kB)
+Using cached packaging-26.3-py3-none-any.whl (129 kB)
+Using cached pluggy-1.7.0-py3-none-any.whl (27 kB)
+Using cached pygments-2.21.0-py3-none-any.whl (1.3 MB)
+Using cached pytest-9.2.0-py3-none-any.whl (411 kB)
+Using cached pytest_cov-7.1.0-py3-none-any.whl (22 kB)
+Using cached requests-2.34.2-py3-none-any.whl (73 kB)
+Using cached urllib3-2.8.0-py3-none-any.whl (135 kB)
+Using cached werkzeug-3.1.9-py3-none-any.whl (228 kB)
+Installing collected packages: urllib3, Pygments, pluggy, packaging, MarkupSafe, itsdangerous, iniconfig, idna, coverage, colorama, click, charset-normalizer, certifi, blinker, Werkzeug, requests, pytest, Jinja2, pytest-cov, Flask
+
+Successfully installed Flask-3.1.3 Jinja2-3.1.6 MarkupSafe-3.0.4 Pygments-2.21.0 Werkzeug-3.1.9 blinker-1.9.0 certifi-2026.10.23 charset-normalizer-3.5.2 click-8.5.0 colorama-0.4.6 coverage-7.17.2 idna-3.20 iniconfig-2.3.1 itsdangerous-2.2.0 packaging-26.3 pluggy-1.7.0 pytest-9.2.0 pytest-cov-7.1.0 requests-2.34.2 urllib3-2.8.0
+
+[notice] A new release of pip is available: 26.2.1 -> 26.3
+[notice] To update, run: C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling\.venv\Scripts\python.exe -m pip install --upgrade pip
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Test)
+[Pipeline] echo
+Running all available project tests
+[Pipeline] bat
+
+C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling>.venv\Scripts\python.exe -m pytest -q 
+.........                                                                [100%]
+9 passed in 0.05s
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Package Source Archive)
+[Pipeline] echo
+Packaging the tested source files; this stage does not claim a Docker image build
+[Pipeline] bat
+
+C:\Users\guest pc\AppData\Local\Temp\case57-jenkins-setup\jenkins-home\workspace\Case57-Airline-Crew-Scheduling>.venv\Scripts\python.exe -m zipfile -c duty-validator.zip duty_validator.py test_duty_validator.py requirements.txt Dockerfile 
+[Pipeline] archiveArtifacts
+Archiving artifacts
+Recording fingerprints
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Checkout, isolated dependency installation, tests, and source archive completed successfully. No Docker image was built.
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

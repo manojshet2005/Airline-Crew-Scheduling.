@@ -24,24 +24,24 @@ This status matrix supersedes the initial audit judgments in the detailed baseli
 | L3.1 | **PARTIAL** | [L3.1_Evidence.md](CASE57_LAB_EVIDENCE/L3.1_Evidence.md) preserves four actual ChatGPT prompt/output records; Prompt 4 code output is incomplete and is honestly scored as failed. |
 | L3.2 | **COMPLETE** | [L3.2_Evidence.md](CASE57_LAB_EVIDENCE/L3.2_Evidence.md) contains before/after function, rationale, test results and behavior comparisons. The full suite passed before and after; no new screenshot is required by this task. |
 | L3.3 | **COMPLETE** | [L3.3_Evidence.md](CASE57_LAB_EVIDENCE/L3.3_Evidence.md) records a genuine isolated-repository conflict, resolution, AI suggestion and Git verification. Preserve this evidence; do not repeat it. |
-| L3.4 | **BLOCKED** | [L3.4_Evidence.md](CASE57_LAB_EVIDENCE/L3.4_Evidence.md); Java 8 JRE only, no `jenkins.war`/service, non-admin session. No success/fail/fix Jenkins logs. Existing `Jenkinsfile` unchanged. GitHub Actions was not used. |
-| L3.5 | **BLOCKED** | [L3.5_Evidence.md](CASE57_LAB_EVIDENCE/L3.5_Evidence.md); CLI/Compose installed, Engine pipe missing, Docker Desktop start failed (`paging file is too small`). `compose.yaml` / `Dockerfile.compose` / `compose_validator_service.py` are prepared and **not executed**. |
+| L3.4 | **PARTIAL** | [L3.4_Evidence.md](CASE57_LAB_EVIDENCE/L3.4_Evidence.md); Jenkins builds #4–#6 succeeded with exact GitHub checkout, tests and packaging. Build #3 records a parser/configuration failure, not a deliberately induced test/build failure. |
+| L3.5 | **COMPLETE** | [L3.5_Evidence.md](CASE57_LAB_EVIDENCE/L3.5_Evidence.md); real Compose image build and PostgreSQL communication succeeded; validator output and persisted rows are recorded, with a genuine terminal screenshot. |
 | L4.1 | **COMPLETE** | [L4.1_Evidence.md](CASE57_LAB_EVIDENCE/L4.1_Evidence.md) records ten direct manual checks and two isolated seeded boundary defects with expected/actual outcomes. |
 | L4.2 | **PENDING HUMAN** | [L4.2_Evidence.md](CASE57_LAB_EVIDENCE/L4.2_Evidence.md) has five scenarios and technical checks; actual classmate/client review and sign-off are outstanding. |
 | L4.3 | **COMPLETE** | [L4.3_Evidence.md](CASE57_LAB_EVIDENCE/L4.3_Evidence.md); both scripts ran in Chrome (Selenium 4.52.0); screenshots `L4.3_plain_selenium.png` and `L4.3_page_object_selenium.png`; locator change is 3 edits vs 1. |
 | L4.4 | **COMPLETE** | [L4.4_Evidence.md](CASE57_LAB_EVIDENCE/L4.4_Evidence.md) classifies ten ChatGPT tests (9/10 valid, 90%), removes the unsupported Boolean expectation, adds missing negative-input-position cases, and records the final ten. |
 | L4.5 | **COMPLETE** | [L4.5_Evidence.md](CASE57_LAB_EVIDENCE/L4.5_Evidence.md) documents all six metrics and thresholds in existing `C57_L4.5_01_Dashboard_Sketch.png.png`; values are mock, not live monitoring data. |
-| L5.1 | **PENDING HUMAN** | [L5.1_Evidence.md](CASE57_LAB_EVIDENCE/L5.1_Evidence.md) contains a checklist; genuine classmate review and findings remain outstanding. |
-| L5.2 | **PARTIAL** | [L5.2_Evidence.md](CASE57_LAB_EVIDENCE/L5.2_Evidence.md) explains three actual Pylint findings. Pylint is explicitly not SonarQube; no SonarQube scan was available. |
-| L5.3 | **PARTIAL** | [L5.3_Evidence.md](CASE57_LAB_EVIDENCE/L5.3_Evidence.md) records an AI-assisted local-code review and verification; no actual pull request review occurred. |
-| L5.4 | **PARTIAL** | [L5.4_Evidence.md](CASE57_LAB_EVIDENCE/L5.4_Evidence.md) compares ten shared cases against an AI reference; SonarQube scans and reliable authoring-time measurements are absent. |
+| L5.1 | **PENDING HUMAN** | [L5.1_Evidence.md](CASE57_LAB_EVIDENCE/L5.1_Evidence.md) contains the checklist and a separately labeled AI-assisted code inspection; genuine classmate review and findings remain outstanding. |
+| L5.2 | **PARTIAL** | [L5.2_Evidence.md](CASE57_LAB_EVIDENCE/L5.2_Evidence.md) explains three test-file Pylint findings and records clean Pylint, Flake8 and Bandit checks for their stated scopes. These tools are explicitly not SonarQube; no SonarQube scan was available. |
+| L5.3 | **PARTIAL** | [L5.3_Evidence.md](CASE57_LAB_EVIDENCE/L5.3_Evidence.md) records an AI-assisted local-code review and verified correction; no actual pull request review occurred. |
+| L5.4 | **PARTIAL** | [L5.4_Evidence.md](CASE57_LAB_EVIDENCE/L5.4_Evidence.md) compares ten shared cases and records a short-run runtime benchmark; SonarQube/alternative scans and authoring-time comparison are absent. |
 | L5.5 | **COMPLETE** | [L5.5_Evidence.md](CASE57_LAB_EVIDENCE/L5.5_Evidence.md) contains the disclosure, usage policy and inspected Flask BSD-3-Clause license. `pip-licenses` was not run. |
 
-**Current totals:** 15 COMPLETE, 5 PARTIAL, 3 PENDING HUMAN, 2 BLOCKED (25 labs). L4.3 screenshots were recaptured from a genuine Chrome run. Existing historical screenshots outside L4.3 were not overwritten. The full project test suite was rerun: **20 passed in 0.12s**.
+**Current totals:** 16 COMPLETE, 6 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED (25 labs). L3.4 and L3.5 evidence was updated after actual Jenkins and Docker Compose runs. L4.3 screenshots were captured from genuine Chrome runs. L5.1 includes a separately labeled AI inspection and safe documentation correction; human peer review remains pending. Existing original screenshots were not overwritten. The current local workspace suite reports **36 passed**; Jenkins build #6 ran the remote branch's distinct suite and reported **9 passed**. See `UI_UX_REDESIGN_NOTES.md` for the separate live-app Chrome run.
 
 ## Audit scope and evidence rules
 
-For the current completion pass, I used the official Assignment Book located at `ppt component\AI_in_SE_Assignment_Book_75_Cases.pdf`, along with `CASE57_INSTRUCTIONS.md`, the existing evidence, application files and the earlier inspected report/screenshots. The screenshot folder was accessible and had 22 images; `LAB SCREENSHOTS.zip` contains the same 22 files and adds no screenshots. No new screenshots were captured for this pass.
+For the original completion pass, I used the official Assignment Book located at `ppt component\AI_in_SE_Assignment_Book_75_Cases.pdf`, along with `CASE57_INSTRUCTIONS.md`, the existing evidence, application files and the earlier inspected report/screenshots. The screenshot folder was accessible and had 22 images; `LAB SCREENSHOTS.zip` contains the same 22 files and adds no screenshots. The later UI/UX continuation captured seven additional screenshots in `CASE57_LAB_EVIDENCE\UI_UX_REDESIGN`; see `CASE57_SCREENSHOT_INVENTORY.md`.
 
 The original detailed audit sections below record the **initial** audit snapshot and its status labels are historical. The Latest practical-completion update above is authoritative wherever it differs, including each lab's current status and remaining work.
 
@@ -177,20 +177,20 @@ The report has some reusable work outside its lab sections: T1.1 contains an SDL
 ### L3.4 – Jenkins success, failure and fix
 
 1. **Requirement:** Run a Jenkins Pipeline with the required stages, capture one successful build, deliberately fail a test/build, then fix it and capture the green build.
-2. **Completion:** **Partial.** A `Jenkinsfile` exists, but no Jenkins execution is evidenced. The PR details screenshot explicitly says Jenkins execution is pending because Jenkins is not configured.
-3. **Existing screenshots:** `C57_TaskC_04_PR_Details.png.png` shows the pending Jenkins note; `C57_TaskC_04_GitHub_Files.png.png` shows a Jenkinsfile in the repository. Neither proves a Jenkins build.
+2. **Completion:** **Partial.** Builds #4, #5 and #6 succeeded. Build #3 failed because of a BOM-prefixed Pipeline DSL token, but this was not a deliberate test/build failure.
+3. **Evidence:** `CASE57_LAB_EVIDENCE/JENKINS_BUILD/build_3_console.txt` through `build_6_console.txt`, actual UI screenshots, and [L3.4_Evidence.md](CASE57_LAB_EVIDENCE/L3.4_Evidence.md). Build #6 confirms the exact two-dot GitHub checkout, isolated install, compile, 9 passing tests, dependency check, source ZIP, and `SUCCESS`.
 4. **Evidence status:** **PARTIAL**
-5. **Remaining work:** Configure/use Jenkins or obtain the faculty demonstration access described in the report; capture and document the successful, failed and fixed builds. Do not claim builds that were not observed.
-6. **New screenshot genuinely required?** **Yes.** The three Jenkins build screenshots specified in the report are absent.
+5. **Remaining work:** Perform one controlled deliberate failure and subsequent fix if the lab specifically requires that experiment. Do not relabel build #3's configuration error as deliberate.
+6. **New screenshot genuinely required?** Jenkins dashboard, successful build, stage and test/console screenshots now exist. A controlled-failure screenshot is still needed only if performing that missing experiment.
 
 ### L3.5 – Docker Compose application/database communication
 
-1. **Requirement:** Use Docker Compose for an app and database, show both services running, and show app logs confirming a database connection.
-2. **Completion:** **Not evidenced.** The project inventory has no Compose file. The Docker screenshot runs pytest in a single container, not an app/database Compose stack.
-3. **Existing screenshots:** `C57_TaskC_03_Docker_Run.png.png` shows `docker run` executing tests inside one container. It does not show Compose or database communication.
-4. **Evidence status:** **MISSING**
-5. **Remaining work:** Create and run the required two-service Compose setup with a password provided through an environment variable; verify both services and the app's connection logs.
-6. **New screenshot genuinely required?** **Yes.** The report requests Compose service-status and app-log screenshots; neither exists.
+1. **Requirement:** Use Docker Compose for an app and database and demonstrate actual database communication.
+2. **Completion:** **Complete.** Compose configuration validated, the validator image built, PostgreSQL became healthy, and the one-shot validator connected, inserted a row, and exited successfully. A second run raised the persisted count to two.
+3. **Evidence:** `CASE57_LAB_EVIDENCE/DOCKER/compose_execution.log`, `compose_run_evidence.txt`, and `compose_live_verification.png`. The original single-container Docker screenshot is not used as Compose evidence.
+4. **Evidence status:** **COMPLETE**
+5. **Remaining work:** None for the one-shot Compose communication demonstration. Do not claim a persistent validator service or production deployment.
+6. **New screenshot genuinely required?** Yes; genuine service/log proof is now present in `compose_live_verification.png`.
 
 ## Module 4
 

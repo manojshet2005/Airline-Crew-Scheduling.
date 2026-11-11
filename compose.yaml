@@ -1,6 +1,6 @@
-# Prepared Docker Compose stack for L3.5.
-# This file has NOT been executed: Docker Engine is unreachable on this machine.
-# Do not treat this as a successful Compose run.
+# L3.5 Compose stack. Actual execution and verification are recorded in
+# CASE57_LAB_EVIDENCE/DOCKER/compose_execution.log.
+# The validator is a one-shot service; it exits after writing its database row.
 
 services:
   db:
