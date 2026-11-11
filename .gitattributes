@@ -1,3 +1,4 @@
 CASE57_LAB_EVIDENCE/DOCKER/*.log whitespace=-blank-at-eol
 CASE57_LAB_EVIDENCE/DOCKER/*.txt whitespace=-blank-at-eol
 CASE57_LAB_EVIDENCE/JENKINS_BUILD/*.txt whitespace=-blank-at-eol
+Case57_57_Manoj_FINAL.pdf -diff -text

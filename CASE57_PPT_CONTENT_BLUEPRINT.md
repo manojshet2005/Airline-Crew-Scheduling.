@@ -46,10 +46,10 @@ Use the friend's deck as a presentation-design reference, not as content to copy
 
 This update supersedes stale slide notes below where they say that lab work is still absent. The current matrix is in `CASE57_EVIDENCE_AUDIT.md`; lab evidence files are under `CASE57_LAB_EVIDENCE`.
 
-- **Current lab totals:** 16 COMPLETE, 6 PARTIAL, 3 PENDING HUMAN and 0 BLOCKED.
+- **Current official lab totals:** 17 COMPLETE, 5 PARTIAL, 3 PENDING HUMAN and 0 BLOCKED. AI substitutes for the three human-dependent labs are counted separately and do not change these official totals.
 - **Verified test runs:** the current local workspace suite reports **36 passed**; Jenkins build #6 reports **9 passed** on the checked-out remote branch. These are separate test sets.
 - **Completed practical evidence:** prior written labs, current Flask/Chrome UI checks, L3.4 Jenkins builds, L3.5 Compose/database communication, and L4.3 plain/POM Selenium runs.
-- **Still partial or human-dependent:** L1.3 privacy-settings comparison, incomplete L3.1 Prompt 4, the deliberate Jenkins failure/fix experiment, SonarQube scans, a real PR review, and L5.4 authoring-time/SonarQube comparison. L2.4/L4.2/L5.1 need genuine human participation. Jenkins and Docker Compose have actual run evidence; do not inflate those results beyond their logs.
+- **Still partial or human-dependent:** L1.3 account privacy settings, the incomplete original ChatGPT L3.1 Prompt 4, the controlled Jenkins failure/fix experiment, SonarQube scans, and L5.4 SonarQube comparison. L5.3's local AI review of merged PR #7 has no posted GitHub comments and no human approval. L2.4/L4.2/L5.1 have clearly labeled AI simulations but still need genuine human participation for official completion. Jenkins and Compose have actual run evidence; do not inflate those results beyond their logs.
 - **Screenshot rule:** L4.3 screenshots were recaptured from the Chrome run. Other existing screenshots were not overwritten. The L4.5 sketch contains mock values, not live monitoring data.
 
 ---
@@ -284,9 +284,8 @@ Add a label that persistence and API integration are not present in the current 
 
 **Presentation-ready content**
 
-- Pylint evidence includes an initial **8.89/10** score and a later **10.00/10** score.
-- Flake8 evidence shows `W292` (no newline at end of file) in that captured run.
-- Bandit reports “No issues identified” for the code it scanned in that run.
+- Current Pylint on `duty_validator.py` reports **10.00/10**; the separate test-file run reported three style findings and **1.25/10**.
+- Current scoped Flake8 and Bandit checks are recorded as clean for their listed files; historical screenshots show earlier runs, including `W292`.
 - These are actual Pylint/Flake8/Bandit outputs; none is a SonarQube scan or quality-gate result.
 - L5.2 separately documents three current Pylint findings as an alternative analyzer; they are not SonarQube findings.
 - Continue to treat code review, rule confirmation and test quality as separate from a linter score.
@@ -295,9 +294,9 @@ Add a label that persistence and API integration are not present in the current 
 
 **Diagram/flowchart for Claude:** Three analysis cards (Pylint, Flake8, Bandit) flowing to “Review findings / verify fixes”; add a separate dashed “SonarQube project + quality gate — pending” box.
 
-**Existing screenshots:** `C57_TaskE_01_Pylint.png.png` (initial score), `C57_TaskE_02_Flake8.png.png` (W292), `C57_TaskE_03_Bandit.png.png` (no issues identified in that scan), `C57_TaskE_04_Pylint_Final.png.png` (final 10/10 score).
+**Existing screenshots:** `C57_TaskE_01_Pylint.png.png` (historical initial score), `C57_TaskE_02_Flake8.png.png` (historical W292), `C57_TaskE_03_Bandit.png.png` (no issues identified in that scan), `C57_TaskE_04_Pylint_Final.png.png` (historical 10/10 score). Current source checks and Pylint findings are in the text evidence; none is SonarQube.
 
-**Missing evidence/practical work:** No SonarQube issue list, project scan, or quality gate is present. L5.2's actual Pylint findings are documented but remain PARTIAL because Pylint is not SonarQube. L5.4 also lacks SonarQube scans and reliable timing observations.
+**Missing evidence/practical work:** No SonarQube issue list, project scan, or quality gate is present. L5.2's actual Pylint findings are documented but remain PARTIAL because Pylint is not SonarQube. L5.4 includes three short runtime microbenchmark runs but still lacks SonarQube scans.
 
 **Status:** Pylint, Flake8 and Bandit runs are evidenced; SonarQube is not.
 
@@ -313,6 +312,7 @@ Add a label that persistence and API integration are not present in the current 
 - Do not place real crew names, personal data or confidential roster details in AI prompts.
 - **Scope limit:** This prototype does not generate AI crew rosters; fairness in generated rosters remains a design and review requirement, not a demonstrated feature.
 - **Operational limitations:** 10/10/60-hour limits are sample assumptions pending official confirmation; no timestamp-based rest computation, roster generation or measured 400-crew performance is claimed.
+- **AI-simulation boundary:** L2.4 estimator roles, the L4.2 operations-stakeholder role, and the L5.1 reviewer roles are fictional AI simulations. They add prepared feedback but are not classmates, client acceptance, peer review, or signatures; official statuses remain pending human input.
 
 **Talking point:** Fairness is not established by code alone. A future roster generator would need defined fairness criteria, representative evaluation and human oversight.
 
@@ -360,7 +360,7 @@ Add a label that persistence and API integration are not present in the current 
 ## Current pending-evidence checklist for Claude
 
 - **Can reuse directly:** Dashboard sketch (`C57_L4.5_01_Dashboard_Sketch.png.png`), backlog (`C57_TaskB_01_Backlog.png.png`), validator examples, test runs, coverage and existing static-analysis screenshots—only for the specific claims they visibly support.
-- **Do not claim as done:** the deliberate Jenkins failure/fix experiment; SonarQube; account privacy settings for L1.3; completed Prompt 4 code; actual PR review; 400-crew performance; classmate estimates/sign-offs; fairness evaluation of generated rosters.
-- **Already evidenced:** L3.3 merge conflict (text/transcript in `L3.3_Evidence.md`); L4.1 manual checks/seeded defects; L4.3 Selenium plain vs POM Chrome run; L4.5 dashboard sketch; L5.5 disclosure/policy/licence check.
-- **Evidence still to collect:** ChatGPT-specific output where required, the deliberate Jenkins failure/fix, SonarQube, actual PR review, genuine peer/classmate input and any measured 400-crew/fairness results.
+- **Do not claim as done:** the deliberate Jenkins failure/fix experiment; SonarQube; account privacy settings for L1.3; a complete original ChatGPT Prompt 4; posted PR comments or human review; 400-crew performance; actual classmate estimates/client sign-off/peer findings; fairness evaluation of generated rosters.
+- **Already evidenced:** L3.3 merge conflict (text/transcript in `L3.3_Evidence.md`); L3.4 Jenkins builds #4–#6 (controlled failure/fix still missing); L3.5 actual Compose/database communication; L4.1 manual checks/seeded defects; L4.3 Selenium plain vs POM Chrome run; L4.5 dashboard sketch; L5.3 local AI review of merged PR #7 with no posted comments; L5.5 disclosure/policy/licence check. AI simulations are separately recorded for L2.4/L4.2/L5.1.
+- **Evidence still to collect:** account-specific privacy settings for L1.3, a complete original ChatGPT Prompt 4, the deliberate Jenkins failure/fix, SonarQube for L5.2 and both L5.4 functions, genuine human inputs for L2.4/L4.2/L5.1, and any measured 400-crew/fairness results.
 - **Never fabricate or infer:** test/build results, prompts, AI provenance, tool configuration, classmate participation, legal approval, or screenshots.

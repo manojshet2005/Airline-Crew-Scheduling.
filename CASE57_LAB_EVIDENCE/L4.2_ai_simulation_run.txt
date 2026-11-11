@@ -1,0 +1,7 @@
+L4.2 technical verification for AI-generated stakeholder simulation
+A1 inclusive boundaries: (True, 'Duty schedule accepted.') | PASS
+A2 daily violation: (False, 'Daily duty limit exceeded.') | PASS
+A3 rest violation: (False, 'Minimum rest requirement not met.') | PASS
+A4 weekly violation: (False, 'Weekly duty limit exceeded.') | PASS
+A5 negative input via Flask API: HTTP 400, {'message': 'Duty hours and rest hours cannot be negative.', 'valid': False} | PASS
+Scenarios: 5; passed: 5; failed: 0

@@ -6,6 +6,8 @@ This index maps the latest actual execution evidence. It does not replace the su
 
 **17 COMPLETE, 5 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED** across 25 labs. The authoritative row-by-row status and limitations are in `CASE57_EVIDENCE_AUDIT.md` and the per-lab records.
 
+The official status of L2.4, L4.2, and L5.1 remains **PENDING HUMAN**. Each now has a completed, explicitly AI-generated substitute record; simulations are not counted as people, client approval, peer comments, or signatures.
+
 ## New focused lab evidence
 
 | Lab | Reproducible evidence | Actual result / remaining item |
@@ -16,6 +18,14 @@ This index maps the latest actual execution evidence. It does not replace the su
 | L5.2 | `L5.2_availability_check.txt`, `L5.2_Evidence.md` | SonarScanner, local server/port, token, and Docker daemon unavailable. No SonarQube findings fabricated; exact future scan procedure is documented. |
 | L5.3 | `L5.3_pr_review_check.py`, `L5.3_review_check_run.txt`, `L5.3_Evidence.md` | Actual merged PR #7 diff reviewed locally; suggestions were tested. GitHub review API showed zero posted comments/reviews. |
 | L5.4 | `L5.4_comparison.py`, `l54_ai_reference.py`, `L5.4_comparison_run.txt`–`L5.4_comparison_run_03.txt` | Project validator passed 10/10; the AI reference passed 8/10 and failed Boolean/NaN validation. Three seven-round benchmark runs are preserved. SonarQube scans remain missing. |
+
+## Clearly labeled AI substitutes for human-dependent labs
+
+| Lab | AI substitute | Reproducible / supporting evidence | Official status |
+|---|---|---|---|
+| L2.4 | Three fictional estimator-role perspectives with Fibonacci estimates, rationales, simulated discussion, median table, and largest simulated gap. One assistant generated all roles; they are not independent people or model runs. | `L2.4_Evidence.md` | PENDING HUMAN: obtain actual estimates from three classmates. |
+| L4.2 | Fictional airline-operations stakeholder questions, scenario feedback, conditional criteria and simulated classroom-only acceptance; five technical outcomes were executed. | `L4.2_Evidence.md`, `L4.2_ai_simulation_checks.py`, `L4.2_ai_simulation_run.txt` | PENDING HUMAN: real client/classmate review and sign-off. |
+| L5.1 | Three role-based AI review perspectives, findings, recommendations and focused source checks; one assistant generated all roles. | `L5.1_Evidence.md`, `L5.1_ai_review_checks.py`, `L5.1_ai_review_checks_run.txt` | PENDING HUMAN: genuine peer review and findings. |
 
 ## Jenkins – L3.4
 

@@ -1,0 +1,11 @@
+L5.1 focused checks for the AI review simulation
+inclusive boundaries: (True, 'Duty schedule accepted.') | PASS
+daily reason precedence: (False, 'Daily duty limit exceeded.') | PASS
+rest reason after daily: (False, 'Minimum rest requirement not met.') | PASS
+boolean rejected with ValueError: PASS
+string rejected with ValueError: PASS
+NaN rejected with ValueError: PASS
+positive infinity rejected with ValueError: PASS
+negative value rejected with ValueError: PASS
+Flask debug mode disabled: True
+Focused input/precedence checks: 9 passed; 0 failed.

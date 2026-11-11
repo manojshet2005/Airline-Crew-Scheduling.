@@ -59,7 +59,7 @@ Static checks were run on the changed Python application and test files:
 .\venv\Scripts\python.exe -m bandit -q hello.py duty_validator.py
 ```
 
-Latest results: Pylint **10.00/10** for both application modules, Flake8 **no findings** in the three listed files, and Bandit **no findings** in the two listed Python files. These are scoped local checks, not a SonarQube scan.
+Latest documented results: Pylint **10.00/10** for `duty_validator.py`; a separate Pylint run on `test_duty_validator.py` reported three style findings and **1.25/10**. Flake8 reported no findings in the three listed files, and Bandit reported no findings in the two listed Python files. These are scoped local checks, not a SonarQube scan.
 
 The screenshots and execution notes from the live Chrome UI check are in `CASE57_LAB_EVIDENCE/UI_UX_REDESIGN/` and `UI_UX_REDESIGN_NOTES.md`.
 
@@ -81,14 +81,14 @@ CASE57_LAB_EVIDENCE/             Per-lab records, screenshots, logs
 
 ## Practical status and limitations
 
-Current audited lab status: **16 COMPLETE, 6 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED** (25 labs). L3.4 has successful Jenkins runs but still lacks a deliberately induced failure-and-fix experiment; L3.5 has a successful one-shot Compose/database communication run.
+Current audited official lab status: **17 COMPLETE, 5 PARTIAL, 3 PENDING HUMAN, 0 BLOCKED** (25 labs). AI-only substitute simulations are separately documented for L2.4, L4.2 and L5.1; they do not satisfy the human participation requirement. L3.4 has successful Jenkins runs but still lacks a deliberately induced failure-and-fix experiment; L3.5 has a successful one-shot Compose/database communication run.
 
-- L2.4 still needs estimates from three actual classmates.
-- L4.2 still needs genuine client/classmate review and sign-off.
-- L5.1 still needs a genuine peer review.
+- L2.4 still needs estimates from three actual classmates; the AI estimator roles are labeled simulations.
+- L4.2 still needs genuine client/classmate review and sign-off; the fictional stakeholder simulation is not approval.
+- L5.1 still needs a genuine peer review; role-based AI notes are not human findings.
 - Jenkins build #6 (L3.4) checked out `https://github.com/manojshet2005/Airline-Crew-Scheduling..git` and passed 9 remote-branch tests. Build #3 failed at Pipeline DSL parsing; that was not a deliberate lab failure.
 - Docker Compose (L3.5) built the validator image, connected to a healthy PostgreSQL service, and persisted validation rows. The validator exits after its one-shot task; evidence is in `CASE57_LAB_EVIDENCE/DOCKER/`.
-- L5.2 records Pylint findings, not SonarQube findings. L5.3 is local AI-assisted review, not a GitHub pull-request review. L5.4 lacks timing and SonarQube comparison evidence.
+- L5.2 records Pylint findings, not SonarQube findings. L5.3 is a local AI review of actual merged PR #7 with no GitHub comments; L5.4 records three runtime microbenchmark runs but still lacks SonarQube.
 
 ## GitHub status
 
