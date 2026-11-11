@@ -1,0 +1,15 @@
+venv Python: 3.14.7
+selenium: 4.52.0
+browser: Google Chrome via Selenium Manager (webdriver.Chrome)
+
+=== l4.3_plain_selenium.py ===
+Plain Selenium boundary case: PASS
+Plain Selenium daily violation: PASS
+Screenshot: L4.3_plain_selenium.png
+exit code: 0
+
+=== l4.3_page_object_selenium.py ===
+POM boundary case: PASS
+POM daily violation: PASS
+Screenshot: L4.3_page_object_selenium.png
+exit code: 0

@@ -1,0 +1,11 @@
+# Compose-only validator image. The original Dockerfile is unchanged.
+FROM python:3.14-slim
+
+WORKDIR /app
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt psycopg2-binary
+
+COPY duty_validator.py compose_validator_service.py ./
+
+CMD ["python", "compose_validator_service.py"]

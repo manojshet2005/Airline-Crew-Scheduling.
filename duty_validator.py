@@ -1,3 +1,6 @@
+"""Duty-limit validation for airline crew scheduling."""
+
+
 def validate_duty(hours_today, hours_last_7_days, rest_hours):
     """
     Validate a crew member's duty hours against the assumed rules.
@@ -8,8 +11,9 @@ def validate_duty(hours_today, hours_last_7_days, rest_hours):
     R4: Negative values are invalid.
     """
 
-    if hours_today < 0 or hours_last_7_days < 0 or rest_hours < 0:
-        raise ValueError("Duty hours and rest hours cannot be negative.")
+    for hours in (hours_today, hours_last_7_days, rest_hours):
+        if hours < 0:
+            raise ValueError("Duty hours and rest hours cannot be negative.")
 
     if hours_today > 10:
         return False, "Daily duty limit exceeded."

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Duty Validator Selenium Fixture</title>
+</head>
+<body>
+  <main>
+    <h1>Duty-Limit Validator</h1>
+    <form>
+      <label>Hours today <input id="daily" type="number" step="any"></label>
+      <label>Hours in last 7 days <input id="weekly" type="number" step="any"></label>
+      <label>Rest hours <input id="rest" type="number" step="any"></label>
+      <button id="submit" type="button" onclick="validateDuty()">Validate</button>
+    </form>
+    <p id="result" role="status" aria-live="polite"></p>
+  </main>
+  <script>
+    function validateDuty() {
+      const daily = Number(document.querySelector("#daily").value);
+      const weekly = Number(document.querySelector("#weekly").value);
+      const rest = Number(document.querySelector("#rest").value);
+      const result = document.querySelector("#result");
+      if (daily < 0 || weekly < 0 || rest < 0) {
+        result.textContent = "Invalid negative input.";
+      } else if (daily > 10) {
+        result.textContent = "Daily duty limit exceeded.";
+      } else if (rest < 10) {
+        result.textContent = "Minimum rest requirement not met.";
+      } else if (weekly > 60) {
+        result.textContent = "Weekly duty limit exceeded.";
+      } else {
+        result.textContent = "Duty schedule accepted.";
+      }
+    }
+  </script>
+</body>
+</html>

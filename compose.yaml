@@ -1,0 +1,30 @@
+# Prepared Docker Compose stack for L3.5.
+# This file has NOT been executed: Docker Engine is unreachable on this machine.
+# Do not treat this as a successful Compose run.
+
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: crew_duty
+      POSTGRES_USER: crew
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-case57_demo_only}
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U crew -d crew_duty"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  validator:
+    build:
+      context: .
+      dockerfile: Dockerfile.compose
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_NAME: crew_duty
+      DATABASE_USER: crew
+      DATABASE_PASSWORD: ${POSTGRES_PASSWORD:-case57_demo_only}
+    depends_on:
+      db:
+        condition: service_healthy
